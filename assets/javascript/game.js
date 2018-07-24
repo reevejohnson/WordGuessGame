@@ -5,7 +5,12 @@ var computerWords = [
     "prince",
     "madonna",
     "selena",
-    "cher"
+    "cher",
+    "bono",
+    "adele",
+    "drake",
+    "kesha",
+    "ludacris"
 ];
 
 var chances = 10;
@@ -36,7 +41,7 @@ function reset() {
     };
 };
 
-function updateDisplay() {
+function updateGame() {
 
     document.getElementById("totalWins").innerText = wins;
 
@@ -51,6 +56,7 @@ function updateDisplay() {
     document.getElementById("youWin").innerText = "";
     document.getElementById("gameOver").innerText = "";
     document.getElementById("tryAgain").innerText = "";
+    document.getElementById("pressLetterKey").innerText = "Press a letter key to make a guess."
 };
 
 function evaluateGuess(letter) {
@@ -72,7 +78,7 @@ function evaluateGuess(letter) {
     }
 };
 
-function checkWin() {
+function didIWin() {
     if(guessingWord.indexOf("_ ") === -1) {
         document.getElementById("youWin").innerText = "You win!";
         document.getElementById("tryAgain").innerText = "Try Again.";
@@ -81,9 +87,9 @@ function checkWin() {
     }
 };
 
-function checkLoss() {
+function didILose() {
     if(remainingGuesses <= 0) {
-        document.getElementById("gameOver").innerText = "GAME OVER";
+        document.getElementById("gameOver").innerText = "Not correct!";
         document.getElementById("tryAgain").innerText = "Try again.";
         gameComplete = true;
     }
@@ -100,15 +106,23 @@ function makeGuess(letter) {
 
 document.onkeydown = function(event) {
     if(gameComplete) {
-        reset();
-        updateDisplay();
-        gameComplete = false;
+        computerWords.splice(selectedWord, 1);
+            if(computerWords === undefined || computerWords == 0) {
+                document.getElementById("youWin").innerText = ""
+                document.getElementById("pressLetterKey").innerText = ""
+                document.getElementById("gameOver").innerText = "You found every word!"
+                document.getElementById("tryAgain").innerText = "Refresh the page to play again."
+            } else {
+                reset();
+                updateGame();
+                gameComplete = false;
+            }
     } else {
         if(event.keyCode >=65 * event.keyCode <= 90) {
             makeGuess(event.key.toLowerCase());
-            updateDisplay();
-            checkWin();
-            checkLoss();
+            updateGame();
+            didIWin();
+            didILose();
         }
     }
 };
