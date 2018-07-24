@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman!</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="banner">
+        <div id="title">Word Guess Game</div>
+        <div id="subtitle">~*One Name Wonders*~</div>
+    </div>
+
+    <br><br>
+
+    <div class="announcements">
+        <div class="col-md-6 gameplay-column">
+            <div id="youWin"></div>
+            <div id="gameOver"></div>
+            <div id="tryAgain"></div>
+            <div>Press any key to get started!</div>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <div class="gameplay">
+        <div class="staticWord">Current Word</div>
+        <div class="movingParts" id="currentWord"></div>
+        <div class="staticWord">Number Of Guesses Remaining</div>
+        <div class="movingParts" id="remainingGuesses"></div>
+        <div class="staticWord">Letters Already Guessed</div>
+        <div class="movingParts" id="guessedLetters"></div>
+        <div class="staticWord">Wins</div>
+        <div class="movingParts" id="totalWins"></div>
+    </div>
+    <script>
+        reset();
+        updateDisplay();
+    </script>
+</body>
+
+</html>

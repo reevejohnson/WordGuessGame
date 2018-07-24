@@ -1,0 +1,37 @@
+body {
+    text-align: center;
+    background: url(../images/musicBackground.jpg);
+    background-repeat: repeat-x repeat-y;
+}
+
+.banner {
+    margin-top: 20px;
+    font-family: 'Amatic SC', cursive;
+}
+
+#title {
+    font-size: 60px;
+}
+
+#subtitle {
+    font-size: 40px;
+}
+
+.announcements {
+    font-size: 30px;
+}
+
+.gameplay {
+    line-height: 50px;
+}
+
+.staticWord {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.movingParts {
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    font-size: 40px;
+}
