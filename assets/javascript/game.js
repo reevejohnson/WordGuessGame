@@ -82,6 +82,7 @@ function didIWin() {
     if(guessingWord.indexOf("_ ") === -1) {
         document.getElementById("youWin").innerText = "You win!";
         document.getElementById("tryAgain").innerText = "Try Again.";
+        document.getElementById("pressLetterKey").innerText = "Press any key for a new word.";
         wins++;
         gameComplete = true;
     }
